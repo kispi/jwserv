@@ -1,0 +1,36 @@
+@media only screen and (min-width: 769px) {
+  .pGroup {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  #style-program .pGroup {
+    font-size: 3.5vw;
+    margin-top: 20vh;
+  }
+  .carousel-controller .glyphicon {
+    top: 40%;
+  }
+  .carousel-inner {
+    font-size: 2.5vw;
+  }
+}
+.carousel-control {
+  background: none !important;
+  width: 100px;
+}
+.carousel-control.right {
+  left: 100px;
+}
+.carousel-inner img {
+  height: 90vh;
+}
+.carousel-inner .inner-item {
+  display: table-cell;
+  width: 100vw;
+  height: 80vh;
+  text-align: center;
+  vertical-align: middle;
+}
+li {
+  list-style-type: none;
+}
