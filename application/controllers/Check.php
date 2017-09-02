@@ -14,7 +14,7 @@ class Check extends JSController {
     header("Content-Type: application/vnd.ms-excel");
     header("Content-Disposition: attachment; filename=area.xls");
 
-    $session = parent::getSessionData();
+    $session = $this->session->userdata('logged_in');
     $data = $this->record_model->getRecords($session['congregation_srl'], NULL, NULL, $this->input->post('from'), $this->input->post('to'));
 
     $area_number_max = 1;
@@ -169,14 +169,25 @@ class Check extends JSController {
     echo json_encode($result);
   }
 
+  public function filterDay()
+  {
+    $day = $this->input->post('day');
+    $session = $this->session->userdata('logged_in');
+    $session['filter_day'] = $day;
+    $this->session->set_userdata('logged_in', $session);
+    echo json_encode([$day]);
+  }
+
+
   public function index()
 	{
-    $session = parent::getSessionData();
+    $session = $this->session->userdata('logged_in');
     if($session === NULL)
       header('location: signin');
 
     $record_per_page = 20;
-    $data['num_of_pages'] = ceil($this->record_model->getNumOfRecords($session['congregation_srl']) / $record_per_page);
+    $data['num_of_pages'] = ceil($this->record_model->getNumOfRecords($session['congregation_srl'], ($session['filter_day'] != 'all'? $session['filter_day'] : NULL)) / $record_per_page);
+
     $page = $this->input->get('page');
     if(!is_numeric($page))
       $page = 1;
@@ -188,7 +199,8 @@ class Check extends JSController {
     $data['latest_record'] = $this->record_model->getTerminalRecord($session['congregation_srl'], 'desc')['visit_start'];
     $data['oldest_record'] = $this->record_model->getTerminalRecord($session['congregation_srl'], 'asc')['visit_start'];
     $data['current_page'] = $page;
-    $data['records'] = $this->record_model->getRecords($session['congregation_srl'], $record_per_page, $page - 1);
+    $data['filter_day'] = $session['filter_day'];
+    $data['records'] = $this->record_model->getRecords($session['congregation_srl'], $record_per_page, $page - 1, NULL, NULL, ($session['filter_day'] != 'all' ? $session['filter_day'] : NULL));
     parent::view('check', $data);
 	}
 }

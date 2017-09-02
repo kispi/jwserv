@@ -7,17 +7,6 @@ class JSController extends CI_Controller {
     $this->load->model('congregation_model');
   }
 
-  public function getSessionData()
-  {
-    $session = $this->session->userdata('logged_in');
-    if($session['id'])
-      $this->member_model->getSession($session['id']);
-    else
-      return NULL;
-
-    return $this->session->userdata('logged_in');
-  }
-
   public function view($page, $data = NULL, $use_header = TRUE, $use_footer = TRUE)
   {
     if(!file_exists(APPPATH.'views/'.$page.'.php'))
@@ -26,7 +15,7 @@ class JSController extends CI_Controller {
     }
 
     if(!isset($data['session']))
-      $data['session'] = self::getSessionData();
+      $data['session'] = $this->session->userdata('logged_in');
 
     if($data['session']['member_srl'])
       $this->member_model->recordLastActivity($data['session']['member_srl']);

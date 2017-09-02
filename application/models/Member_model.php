@@ -48,12 +48,12 @@ class Member_model extends CI_Model {
     $result = $query->row_array();
 
     if($query->num_rows() === 1 && password_verify($password, $result['password']))
-      return self::getSession($id, $result);
+      return self::setSession($id, $result);
 
     return NULL;
   }
 
-  public function getSession($id, $member_info = NULL)
+  public function setSession($id, $member_info = NULL)
   {
     $result = $member_info;
     if($result === NULL) {
@@ -72,7 +72,8 @@ class Member_model extends CI_Model {
       'phone' => $result['phone'],
       'congregation_srl' => $cong['congregation_srl'],
       'congregation_name' => $cong['name'],
-      'congregation_number' => $cong['unique_number']
+      'congregation_number' => $cong['unique_number'],
+      'filter_day' => 'all'
     ];
     $this->session->set_userdata('logged_in', $session_info);
 

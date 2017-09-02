@@ -57,7 +57,7 @@ class Signin extends JSController {
 
   public function index()
 	{
-    if(parent::getSessionData())
+    if($this->session->userdata('logged_in'))
       header('Location: main');
     else
       parent::view('signin');

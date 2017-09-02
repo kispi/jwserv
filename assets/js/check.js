@@ -55,6 +55,23 @@ $('.popup.delete .yes').click(function() {
 $('button.help').click(function() {
   popup('help');
 });
+$('button.filter-day').click(function() {
+  popup('day');
+});
+$('button.day').click(function() {
+  var day = $(this).attr('class').split(' ').slice(-1)[0];
+  console.log(day);
+  $.ajax({
+    type: "POST",
+    url: "check/filterDay",
+    data: {"day": day},
+    dataType: "json",
+    success:
+    function(data) {
+      location.reload();
+    }
+  })
+})
 $('button.extract').click(function() {
   $('.popup.extract input').datepicker({ dateFormat: 'yy-mm-dd' });
   popup('extract');

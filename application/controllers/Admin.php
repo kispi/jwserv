@@ -32,7 +32,7 @@ class Admin extends JSController {
 
   public function updateRecord()
   {
-    $session = parent::getSessionData();
+    $session = $this->session->userdata('logged_in');
     $updated_row = NULL;
 
     $numOfAdmins = 0;
@@ -68,7 +68,7 @@ class Admin extends JSController {
 
   public function index()
 	{
-    $session = parent::getSessionData();
+    $session = $this->session->userdata('logged_in');
     if($session != NULL && $session['auth'] === 'a') {
       $data['members'] = $this->member_model->getRecords($session['congregation_srl']);
       parent::view('admin', $data);

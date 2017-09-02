@@ -68,7 +68,7 @@ class Record_model extends CI_Model {
     return $result;
   }
 
-  public function getRecords($congregation, $record_per_page = NULL, $page = 1, $from = NULL, $to = NULL)
+  public function getRecords($congregation, $record_per_page = NULL, $page = 1, $from = NULL, $to = NULL, $day = NULL)
   {
     if($congregation != NULL)
       $this->db->where('congregation', $congregation);
@@ -76,6 +76,10 @@ class Record_model extends CI_Model {
     if($from != NULL && $to != NULL) {
       $this->db->where('visit_start >=', $from);
       $this->db->where('visit_start <=', $to);
+    }
+
+    if($day != NULL) {
+      $this->db->where('dayname(visit_start)', $day);
     }
 
     $this->db->order_by('visit_start desc, area desc');
@@ -99,9 +103,12 @@ class Record_model extends CI_Model {
     return $result->row_array();
   }
 
-  public function getNumOfRecords($congregation)
+  public function getNumOfRecords($congregation, $day = NULL)
   {
     $this->db->where('congregation', $congregation);
+    if($day != NULL) {
+      $this->db->where('dayname(visit_start)', $day);
+    }
     $query = $this->db->get($this->table);
     return $query->num_rows();
   }

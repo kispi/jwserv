@@ -63,17 +63,22 @@ ul.pagination li a {
   float: initial;
   border: none;
 }
-button.help, button.extract {
+button.help, button.extract, button.filter-day {
   margin-bottom: 20px;
   display: inline-block;
-  width: 48%;
+  width: 32%;
   max-width: 140px;
 }
-button.help {
-  float: left;
+button.day {
+  width: 14%;
+  height: 40px;
+  border-radius: 0;
+  margin: -2px;
+  padding: 0;
 }
-button.extract {
-  float: right;
+button.day.all {
+  width: 95.8%;
+  margin-top: 1px;
 }
 .popup.extract input {
   text-align: center;

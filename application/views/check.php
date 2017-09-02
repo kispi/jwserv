@@ -27,6 +27,22 @@
     <div>하단의 페이지네이션은 좌우로 스크롤할 수 있습니다.</div>
   </div>
 </div>
+<div class="popup day">
+  <span class="glyphicon glyphicon-remove-circle day"></span>
+  <div class="message" style="text-align: center">
+    <button class="btn btn-<?=($filter_day == 'monday' ? 'primary' : 'default')?> day monday">월</button>
+    <button class="btn btn-<?=($filter_day == 'tuesday' ? 'primary' : 'default')?> day tuesday">화</button>
+    <button class="btn btn-<?=($filter_day == 'wednesday' ? 'primary' : 'default')?> day wednesday">수</button>
+    <button class="btn btn-<?=($filter_day == 'thursday' ? 'primary' : 'default')?> day thursday">목</button>
+    <button class="btn btn-<?=($filter_day == 'friday' ? 'primary' : 'default')?> day friday">금</button>
+    <button class="btn btn-<?=($filter_day == 'saturday' ? 'primary' : 'default')?> day saturday">토</button>
+    <button class="btn btn-<?=($filter_day == 'sunday' ? 'primary' : 'default')?> day sunday">일</button><br>
+    <button class="btn btn-<?=($filter_day == 'all' ? 'primary' : 'default')?> day all">전체</button>
+  </div>
+  <div class="action">
+    <button class="btn btn-success btn-close">닫기</button>
+  </div>
+</div>
 <div class="popup duplicate">
   <span class="glyphicon glyphicon-remove-circle duplicate"></span>
   <div class="message">
@@ -88,7 +104,10 @@
     <?php else: ?>
       <div class="col-sm-12 text-center">
         <button class="btn btn-primary help">도움말</button>
-        <button class="btn btn-info extract">추출</button>
+        <button class="btn btn-success filter-day">요일</button>
+        <button class="btn btn-info extract">추출</button><br>
+      </div>
+      <div class="col-sm-12 text-center">
         <?php foreach($records as $record):?>
           <div class="card record-<?=$record['record_srl']?>">
               <div class="row">

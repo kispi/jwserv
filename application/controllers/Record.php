@@ -26,7 +26,7 @@ class Record extends JSController {
 
   public function index()
 	{
-    $session = parent::getSessionData();
+    $session = $this->session->userdata('logged_in');
     if($session === NULL)
       header('location: signin');
     else {

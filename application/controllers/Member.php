@@ -25,12 +25,12 @@ class Member extends JSController {
 
   public function updateRecord()
   {
-    $current_user_info = parent::getSessionData();
+    $current_user_info = $this->session->userdata('logged_in');
     $verificationResult = verifySignupForm($this->input->post());
     $updated_row = NULL;
 
     $data = $this->input->post();
-    $session = parent::getSessionData();
+    $session = $this->session->userdata('logged_in');
     // 회중을 옮기는 경우
     if(isset($data['congregation']) && ($data['congregation'] != $session['congregation_srl'])) {
       // 옮기려는 회중에 계정이 없는 경우
@@ -46,7 +46,6 @@ class Member extends JSController {
       if(!$emailOwner || ($emailOwner && $emailOwner['member_srl'] === $session['member_srl'])) {
         $updated_row = $this->member_model->updateRecord($data);
         $updated_row['msg'] = "SUCCESS";
-        parent::getSessionData();
       }
       else {
         $updated_row['msg'] = "DUPLICATED_EMAIL";
@@ -60,7 +59,7 @@ class Member extends JSController {
 
   public function index()
 	{
-    if(parent::getSessionData()) {
+    if($this->session->userdata('logged_in')) {
       $data['congregations'] = $this->congregation_model->getRecords();
       parent::view('member', $data);
     }
