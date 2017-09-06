@@ -1,0 +1,12 @@
+.row.content.body.signup {
+  padding: 20px;
+}
+#add-congregation {
+  float: right;
+}
+.popup.add-congregation input {
+  border-radius: 20px;
+  border: solid 2px cornflowerblue;
+  padding-left: 10px;
+  padding-right: 10px;
+}

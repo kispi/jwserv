@@ -1,0 +1,49 @@
+div.card {
+  padding: 7px;
+  margin: 7px;
+}
+.card-button {
+  font-size: large;
+  padding: 4px;
+  float: right;
+}
+.card-button:hover {
+  color: darkslategray;
+}
+select {
+  height: 29px;
+  border: 0px;
+}
+input.input-card {
+  border-width: 0px;
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+  color: black;
+}
+input[readonly], select[disabled] {
+  background: lightgray;
+}
+button.help, button.extract {
+  margin-bottom: 20px;
+  display: inline-block;
+  width: 48%;
+  max-width: 140px;
+}
+.table-cell {
+  border: solid 1px lightsteelblue;
+  text-align: center;
+  padding: 0px;
+  font-weight: bold;
+}
+.table-cell.menu {
+  border-bottom: 0px;
+  background-color: lightgray;
+}
+.table-cell.name {
+  border-right: 0px;
+}
+.table-cell.email {
+  border-top: 0px;
+  border-bottom: 0px;
+}

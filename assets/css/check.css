@@ -1,0 +1,94 @@
+
+div.card {
+  padding: 7px;
+  margin: 7px;
+}
+.card-button {
+  font-size: large;
+  padding: 4px;
+  float: right;
+}
+.card-button:hover {
+  color: darkslategray;
+}
+input.input-card {
+  border-width: 0px;
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+  color: black;
+}
+input[readonly] {
+  background: beige;
+}
+label.record {
+  background: #333;
+  color: #d5d5d5;
+  font: initial;
+  letter-spacing: 4px;
+  font-family: dotum;
+  padding: 7px 7px 4px 7px;
+  opacity: 0.9;
+  border-radius: 20px;
+}
+.table-cell {
+  border: solid 1px lightsteelblue;
+  text-align: center;
+  padding: 0px;
+  font-weight: bold;
+}
+.table-cell.menu {
+  border-bottom: 0px;
+  background-color: palegoldenrod;
+}
+.table-cell.area {
+  border-right: 0px;
+}
+.table-cell.visit-start {
+  border-top: 0px;
+  border-bottom: 0px;
+  border-right: 0px;
+}
+.table-cell.visit-end {
+  border-top: 0px;
+  border-bottom: 0px;
+}
+ul.pagination {
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+ul.pagination li a {
+  float: initial;
+  border: none;
+}
+button.help, button.extract, button.filter-day {
+  margin-bottom: 20px;
+  display: inline-block;
+  width: 32%;
+  max-width: 140px;
+}
+button.day {
+  width: 14%;
+  height: 40px;
+  border-radius: 0;
+  margin: -2px;
+  padding: 0;
+}
+button.day.all {
+  width: 95.8%;
+  margin-top: 1px;
+}
+.popup.extract input {
+  text-align: center;
+  width: 120px;
+  height: 30px;
+  margin-right: 10px;
+  border-radius: 20px;
+  border: solid 2px cadetblue;
+  font-size: 12pt;
+}
+.popup.extract form {
+  font-family: inherit;
+}

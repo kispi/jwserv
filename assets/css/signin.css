@@ -1,0 +1,11 @@
+.row.content.body.signin {
+  padding: 20px;
+}
+.popup.no-member div.message.find-account.send-fail {
+  margin: 30px;
+  color: indianred;
+}
+.popup.no-member div.message.find-account.send-success {
+  margin: 30px;
+  color: seagreen;
+}

@@ -1,0 +1,9 @@
+.row.content.body.main {
+  padding: 20px;
+}
+.btn.info {
+  position: fixed;
+  bottom: 70px;
+  font-weight: bold;
+  color: royalblue;
+}
