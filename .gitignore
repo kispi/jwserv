@@ -2,8 +2,6 @@
 
 application/cache/*
 application/config/database.php
-application/config/database.sample.php
-application/controllers/Signin.php
 !application/cache/index.html
 !application/cache/.htaccess
 
