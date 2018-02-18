@@ -68,12 +68,12 @@ class Signup extends JSController {
   }
 
   public function index()
-	{
-    if($this->session->userdata('logged_in');)
+  {
+    if($this->session->userdata('logged_in'))
       header('Location: main');
     else {
       $data['congregations'] = $this->congregation_model->getRecords();
       parent::view('signup', $data);
     }
-	}
+  }
 }
